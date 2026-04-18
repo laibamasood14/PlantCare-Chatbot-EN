@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: plantcare-chatbot
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+    disk:
+      name: chromadb-storage
+      mountPath: /opt/render/project/src/chroma_db
+      sizeGB: 1

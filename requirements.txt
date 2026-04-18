@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+fastapi
+uvicorn[standard]
+# ChromaDB 0.4.x is not compatible with NumPy 2.x (uses removed np.float_, etc.)
+numpy>=1.24.0,<2
+chromadb==0.4.24
+sentence-transformers==2.2.2
+PyMuPDF
+groq
+python-dotenv
+transformers==4.35.0
+torch==2.1.2+cpu
