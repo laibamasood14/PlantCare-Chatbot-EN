@@ -1,11 +1,14 @@
 fastapi
 uvicorn[standard]
-# ChromaDB 0.4.x is not compatible with NumPy 2.x (uses removed np.float_, etc.)
+# Prefer NumPy 1.x for compatibility across pinned ML / vector deps on Render
 numpy>=1.24.0,<2
-chromadb==0.4.24
-sentence-transformers==2.2.2
+chromadb==0.5.0
+sentence-transformers==2.7.0
 PyMuPDF
 groq
 python-dotenv
-transformers==4.35.0
+transformers==4.40.0
+# transformers 4.40.0 requires tokenizers>=0.19,<0.20 (0.15.2 cannot install with it).
+# 0.19.x provides manylinux wheels on Render — no Rust compile.
+tokenizers==0.19.1
 torch
